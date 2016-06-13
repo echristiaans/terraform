@@ -27,7 +27,7 @@ resource "aws_instance" "web" {
 	instance_type = "t2.micro"
 	subnet_id = "subnet-99a58be2"
 	vpc_security_group_ids = ["sg-8e08dfe6"]
-	count = "2"
+	count = "1"
 	tags {
 		Identity="hashiconf-1c383cd30b7c298ab50293adfecb7b18"
 		Purpose="HashiConf 2016 test plan"
