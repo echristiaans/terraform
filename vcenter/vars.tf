@@ -1,7 +1,7 @@
-variable "viuser" {}
-variable "vipassword" {}
+variable "viuser" {default = "sa_vcenter_prov@dirtybit.io"}
+variable "vipassword" {default = "3todkE&o&C7J^t0"}
 variable "viserver" {
-  default = "vcs1.local.domain"
+  default = "db-vc-p01.dirtybit.io"
 }
 
 // default VM name in vSphere
@@ -11,27 +11,32 @@ variable "vmname" {
 
 // default VM hostname
 variable "vmhostname" {
-  default = "test-host"
+  default = "db-esx-p03.dirtybit.io"
 }
 
 // default Resource Pool
 variable "vmrp" {
-  default = "YOUR_RP"
+  default = "terraform"
 }
 
 // default VM domain for guest customization
 variable "vmdomain" {
-  default = "local.domain"
+  default = "dirtybit.io"
 }
 
 // default datastore to deploy vmdk
 variable "vmdatastore" {
-  default = "DS_SILVER_01"
+  default = "vsanDatastore"
 }
 
 // default VM Template
 variable "vmtemp" {
-  default = "CENTOS-TEMP"
+  default = "w2k16_template"
+}
+
+// default disksize
+variable "disksize" {
+  default = "100"
 }
 
 // map of the datastore clusters (vmdatastore = "vmdscluster")
@@ -49,7 +54,7 @@ variable "vmdscluster" {
 variable vmcluster {
   type = "map"
   default = {
-    YOUR_RP = "RESOURCE_CLUSTER_GOLD"
+    terraform = "Test"
     ANOTHER_RP = "RESOURCE_01_CLUSTER_GOLD"
     THIRD_RP = "RESOURCE_CLUSTER_SILVER"
   }
@@ -59,7 +64,7 @@ variable vmcluster {
 variable "vmaddrbase" {
   type = "map"
   default = {
-    local.domain = "192.168.0."
+    dirtybit.io = "10.14.2."
     second.domain = "192.168.1."
   }
 }
@@ -73,7 +78,7 @@ variable "vmaddroctet" {
 variable "vmgateway" {
   type = "map"
   default = {
-    local.domain = "192.168.0.1"
+    dirtybit.io = "10.14.2.1"
     second.domain = "192.168.1.1"
   }
 }
@@ -82,7 +87,7 @@ variable "vmgateway" {
 variable "vmdns1" {
   type = "map"
   default = {
-    local.domain = "192.168.0.5"
+    dirtybit.io = "10.14.2.10"
     second.domain = "192.168.1.5"
   }
 }
@@ -100,6 +105,6 @@ variable "vmdns2" {
 variable "vmnetlabel" {
   type = "map"
   default = {
-    local.domain = "NET_Backend_01"
+    dirtybit.io = "app_p"
   }
 }

@@ -1,0 +1,27 @@
+{ "variables": {
+  "iso_file": "http://linuxsoft.cern.ch/centos/7.3.1611/isos/x86_64/CentOS-7-x86_64-Minimal-1611.iso",
+  "iso_checksum": "27bd866242ee058b7a5754e83d8ee8403e216b93d130d800852a96f41c34d86a",
+  "type": "sha256",
+  "non_gui": "true"
+  },
+  "builders": [
+    { "type": "virtualbox-iso",
+      "iso_url": "",
+      "iso_checksum": "",
+      "iso_checksum_type": "",
+      "headless": "",
+      "output_directory": "builds",
+      "vm_name": "Minimal-CentOS7",
+      "guest_os_type": "RedHat_64",
+      "disk_size": "81920",
+      "boot_wait": "5s",
+      "http_directory": "src",
+      "boot_command": [ "<tab> text ks=http://:/ks.cfg<enter><wait>" ],
+      "ssh_username": "packer",
+      "ssh_password": "packer",
+      "ssh_wait_timeout": "1000s",
+      "shutdown_command": "sudo shutdown -h 0",
+      "format": "ova"
+      }
+    ] 
+}

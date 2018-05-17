@@ -1,0 +1,28 @@
+{ "variables":
+  { "iso_file": "~/Downloads/CentOS-7-x86_64-Minimal-1708.iso",
+    "iso_checksum": "bba314624956961a2ea31dd460cd860a77911c1e0a56e4820a12b9c5dad363f5",
+    "type": "sha256",
+    "non_gui": "true"
+  },
+  "builders": [
+    { "type": "virtualbox-iso",
+      "iso_url": "file:///Users/erik/Downloads/CentOS-7-x86_64-Minimal-1708.iso",
+      "iso_checksum": "bba314624956961a2ea31dd460cd860a77911c1e0a56e4820a12b9c5dad363f5",
+      "iso_checksum_type": "sha256",
+      "iso_checksum_url" : "",
+      "headless": "",
+      "output_directory": "builds",
+      "vm_name": "Minimal-CentOS7",
+      "guest_os_type": "RedHat_64",
+      "disk_size": "81920",
+      "boot_wait": "5s",
+      "http_directory": "src",
+      "boot_command": [ "<tab> text ks=http://10.230.27.199:8080/src/kickstart.cfg<enter><wait>" ],
+      "ssh_username": "deploy",
+      "ssh_password": "deploy",
+      "ssh_wait_timeout": "1000s",
+      "shutdown_command": "sudo shutdown -h 0",
+      "format": "ova"
+    }
+  ]
+}
